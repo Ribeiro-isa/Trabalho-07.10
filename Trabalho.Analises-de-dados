@@ -1,0 +1,195 @@
+#Integrantes:
+#Isadora Ribeiro Eugênio
+#R.A.: 42322274
+#Samuel Pereira dos Santos
+#R.A.:422220417
+#Erick Vinicius S. Marques
+#R.A.:4251923769
+
+
+
+
+                  # Questão - 01
+# 1.1 - Recebe o nome e a nota de 10 alunos
+alunos = {}
+
+for i in range(10):
+    nome = input(f"Digite o nome do {i+1}º aluno: ")
+    while True:
+        try:
+            nota = float(input(f"Digite a nota de {nome}: "))
+            break
+        except ValueError:
+            print("Entrada inválida! Digite um número.")
+    alunos[nome] = nota
+
+# 1.2 - Calcula a média das notas
+media = sum(alunos.values()) / len(alunos)
+
+# 1.3 - Imprime a média
+print(f"\n📊 Média da turma: {media:.2f}")
+
+# 1.4 - Imprime maior e menor nota e quem obteve
+maior_nota = max(alunos.values())
+menor_nota = min(alunos.values())
+
+print("\n🏆 Maior nota:", maior_nota)
+for nome, nota in alunos.items():
+    if nota == maior_nota:
+        print(f" - {nome}")
+
+print("\n🔻 Menor nota:", menor_nota)
+for nome, nota in alunos.items():
+    if nota == menor_nota:
+        print(f" - {nome}")
+
+# 1.5 - Lista dos alunos abaixo da média
+print("\n📉 Alunos abaixo da média:")
+for nome, nota in alunos.items():
+    if nota < media:
+        print(f"{nome}: {nota}")
+
+# 1.6 - Lista dos alunos iguais ou acima da média
+print("\n📈 Alunos iguais ou acima da média:")
+for nome, nota in alunos.items():
+    if nota >= media:
+# --------
+# Questão - 02
+# 2.1 Receba do usuario 10 números inteiros e coloque em uma estrutura de dados
+numeros = []
+
+for i in range(10):
+    while True:
+        try:
+            num = int(input(f"Digite o {i+1}º número inteiro: "))
+            numeros.append(num)
+            break
+        except ValueError:
+            print("Entrada inválida! Digite um número inteiro.")
+
+#2.2 Na sequência solicite ao usuário que informe um novo número inteiro, e verifique se este número encontra-se registrado
+while True:
+    try:
+        novo_numero = int(input("\nDigite um novo número inteiro para verificar: "))
+        break
+    except ValueError:
+        print("Entrada inválida! Digite um número inteiro.")
+
+#2.3 Caso positivo, imprima a(s) posição(ões) em que este número estiver na estrutura. Caso contrário, exiba uma mensagem avisando ao usuário informando que o número não se encontra na estrutura.
+posicoes = []
+for i in range(len(numeros)):
+    if numeros[i] == novo_numero:
+        posicoes.append(i)
+
+if posicoes:
+    print(f"O número {novo_numero} está na estrutura na(s) posição(ões): {posicoes}")
+else:
+    print(f"O número {novo_numero} não se encontra na estrutura.")
+# -------------
+# Questão - 03
+
+# 3.1 Receba do usuário 10 números inteiros e guarde em uma estrutura de dados.
+numeros = []
+
+for i in range(10):
+    while True:
+        try:
+            num = int(input(f"Digite o {i+1}º número inteiro: "))
+            numeros.append(num)
+            break
+        except ValueError:
+            print("Entrada inválida! Digite um número inteiro.")
+
+# 3.2 Em seguida, troque todos os valores negativos do vetor por 0.
+for i in range(len(numeros)):
+    if numeros[i] < 0:
+        numeros[i] = 0
+
+# 3.3 Imprima o resultado dos dados alterados.
+print("\nLista final (negativos trocados por 0):")
+print(numeros)
+# ----------------
+# Questão - 04
+# 4.1 Peça ao usuário os 6 números que ele jogou.
+numeros_jogados = []
+
+# 4.2 Solicite ao usuário que informe iniciamente os 6 números sorteados na Mega Sena.
+for i in range(6):
+    while True:
+        try:
+            num = int(input(f"Digite o {i+1}))º número sorteado (1 a 60): "))
+            if 1 <= num <= 60:
+                numeros_jogados.append(num)
+                break
+            else:
+                print("Número inválido! Digite um número entre 1 e 60.")
+
+# 4.3 Imprima a quantidade de pontos que ele fez no concurso. 
+print("\nNúmeros jogados:", numeros_jogados)
+# -----------
+# Questão - 05
+# Função de soma (direta)
+def soma(a, b):
+    return a + b
+
+# Função de subtração (direta)
+def subtracao(a, b):
+    return a - b
+
+# Multiplicação usando somas sucessivas
+def multiplicacao(a, b):
+    resultado = 0
+    negativo = False
+    
+    # Tratar números negativos
+    if b < 0:
+        b = -b
+        negativo = True
+    
+    for _ in range(b):
+        resultado = soma(resultado, a)
+    
+    return -resultado if negativo else resultado
+
+# Potenciação usando multiplicação sucessiva
+def potencia(a, b):
+    resultado = 1
+    for _ in range(b):
+        resultado = multiplicacao(resultado, a)
+    return resultado
+
+# Programa principal
+def main():
+    print("=== Atividade 5 ===")
+    a = int(input("Digite o primeiro número: "))
+    b = int(input("Digite o segundo número: "))
+
+    while True:
+        print("\nEscolha a operação:")
+        print("1 - Soma")
+        print("2 - Subtração")
+        print("3 - Multiplicação")
+        print("4 - Potenciação")
+        print("0 - Sair")
+
+        opcao = input("Opção: ")
+
+        if opcao == "1":
+            print(f"Resultado da soma: {soma(a, b)}")
+        elif opcao == "2":
+            print(f"Resultado da subtração: {subtracao(a, b)}")
+        elif opcao == "3":
+            print(f"Resultado da multiplicação: {multiplicacao(a, b)}")
+        elif opcao == "4":
+            print(f"Resultado da potência: {potencia(a, b)}")
+        elif opcao == "0":
+            print("Encerrando o programa...")
+            break
+        else:
+            print("Opção inválida!")
+
+# Executar
+main()
+
+
+        print(f"{nome}: {nota}")
