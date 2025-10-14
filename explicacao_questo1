@@ -1,0 +1,20 @@
+Explicação codigo de resolução questão 1:
+
+1.1.
+inicia a lista "alunos" para receber as informações dos alunos, assim inicia um loop de for onde cada volta solicita o nome e a nota, fazendo a validação de cada nota pode ser inserida em uma variavel temporaria float.
+apos a validação é realizada a inserção na lista "alunos" dos valores de nome e nota do aluno. isso é repetido 10 veses.
+
+1.2.
+É tirado a media das notas do total de alunos.
+
+1.3.
+é impressa a media na tela.
+
+1.4.
+é retirada e armazenada nas variaveis "maior_nota" e "menor_nota" das notas extremas dentre as que foram coletadas na 1.1 e imprime elas informando o nome e a nota de cada aluno rodando a lista em dois loops de for até encontrar.
+
+1.5.
+é feito um loop de for em que é passado item por item na lista "alunos" e quando um item tem o campo nota menor que a variavel "media" é informado o campo nome e nota do item.
+
+1.6.
+é feito a mesma coisa que no item 1.5, mas par alunos que estão na media ou acima.
