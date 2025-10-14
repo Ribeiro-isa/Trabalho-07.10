@@ -53,6 +53,7 @@ for nome, nota in alunos.items():
 print("\n📈 Alunos iguais ou acima da média:")
 for nome, nota in alunos.items():
     if nota >= media:
+      print(f"{nome}: {nota}")
 # --------
 # Questão - 02
 # 2.1 Receba do usuario 10 números inteiros e coloque em uma estrutura de dados
