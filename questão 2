@@ -1,0 +1,24 @@
+numeros = []
+
+for i in range(10):
+    while True:
+        try:
+            num = int(input(f"Digite o {i+1}º número inteiro: "))
+            numeros.append(num)
+            break
+        except ValueError:
+            print("Entrada inválida! Digite um número inteiro.")
+while True:
+    try:
+        novo_numero = int(input("\nDigite um novo número inteiro para verificar: "))
+        break
+    except ValueError:
+        print("Entrada inválida! Digite um número inteiro.")
+posicoes = []
+for i in range(len(numeros)):
+    if numeros[i] == novo_numero:
+        posicoes.append(i)
+if posicoes:
+    print(f"O número {novo_numero} está na estrutura na(s) posição(ões): {posicoes}")
+else:
+    print(f"O número {novo_numero} não se encontra na estrutura.")
